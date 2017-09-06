@@ -1,0 +1,28 @@
+.head{
+    background-color: #47A9CC;
+    color: white;
+}
+
+.head h1{
+    text-align: center;
+}
+
+.body{
+    background-color: #646464;
+    color: white;
+    padding: 25px 50px;
+}
+
+.body .units-label{
+    margin-left: 10px;
+}
+
+.body .error{
+    color: #F9ACBA;
+}
+
+.body table{
+    background-color: white;
+    color: black;
+    margin-top : 10px;
+}

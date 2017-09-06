@@ -1,0 +1,73 @@
+<div class="head container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Weather Forecast App</h1>
+        </div>
+    </div>
+</div>
+
+<div class="body container">
+    <div class="row">
+        <div class="col-12">
+            <span class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                    {{Main.displayedCity}}
+                    <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li ng-repeat="city in Main.citiesList">
+                        <a ng-hide="Main.displayedCity === city.name"
+                           ng-click="Main.loadWeatherForecast(city)"
+                           href="javascript:void(0)">
+                            {{city.name}}
+                        </a>
+                    </li>
+                </ul>
+            </span>
+
+            <span class="units-label">Units: </span>
+            <label>
+                <input type="radio" ng-model="Main.units" ng-change="Main.loadWeatherForecast()"
+                          value="metric" name="units">
+                C
+            </label>
+
+            <label>
+                <input type="radio" ng-model="Main.units" ng-change="Main.loadWeatherForecast()"
+                       value="imperial" name="units">
+                F
+            </label>
+        </div>
+
+        <div ng-if="Main.isLoading" class="col-12">
+            <p>Loading...<p/>
+        </div>
+
+        <div ng-if="Main.errorOccurred" class="col-12 error">
+            <p>Sorry something went wrong with Open Weather API...<p/>
+        </div>
+
+        <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Weather</th>
+                        <th>Temperature</th>
+                        <th>Humidity</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="weather in Main.weatherData.list">
+                        <td>{{weather.dt_txt}}</td>
+                        <td>{{weather.weather[0].main}}</td>
+                        <td>{{weather.main.temp_min}} ~ {{weather.main.temp_max}}</td>
+                        <td>{{weather.main.humidity}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
