@@ -49,25 +49,30 @@
         </div>
 
         <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-12">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Date/Time</th>
-                        <th>Weather</th>
-                        <th>Temperature</th>
-                        <th>Humidity</th>
-                    </tr>
-                </thead>
+            <!--<table class="table table-striped">-->
+                <!--<thead>-->
+                    <!--<tr>-->
+                        <!--<th>Date/Time</th>-->
+                        <!--<th>Weather</th>-->
+                        <!--<th>Temperature</th>-->
+                        <!--<th>Humidity</th>-->
+                    <!--</tr>-->
+                <!--</thead>-->
 
-                <tbody>
-                    <tr ng-repeat="weather in Main.weatherData.list">
-                        <td>{{weather.dt_txt}}</td>
-                        <td>{{weather.weather[0].main}}</td>
-                        <td>{{weather.main.temp_min}} ~ {{weather.main.temp_max}}</td>
-                        <td>{{weather.main.humidity}}</td>
-                    </tr>
-                </tbody>
-            </table>
+                <!--<tbody>-->
+                    <!--<tr ng-repeat="weather in Main.weatherData.list">-->
+                        <!--<td>{{weather.dt_txt}}</td>-->
+                        <!--<td>{{weather.weather[0].main}}</td>-->
+                        <!--<td>{{weather.main.temp_min}} ~ {{weather.main.temp_max}}</td>-->
+                        <!--<td>{{weather.main.humidity}}</td>-->
+                    <!--</tr>-->
+                <!--</tbody>-->
+            <!--</table>-->
+
+
+            <div  ng-repeat="weather in Main.weatherData">
+                <weather-card weather-details-data="{{weather}}"></weather-card>
+            </div>
         </div>
     </div>
 </div>

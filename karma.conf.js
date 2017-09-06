@@ -10,10 +10,10 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-resource/angular-resource.js',
       'app.constants.js',
-      'main/main.js',
+      'components/main/main.js',
       'services/services.js',
       'services/*.js',
-      'main/*.js'
+      'components/main/*.js'
     ],
 
     autoWatch: true,
