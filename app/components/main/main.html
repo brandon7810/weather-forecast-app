@@ -8,7 +8,7 @@
 
 <div class="body container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-sm-12 controls">
             <span class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                     {{Main.displayedCity}}
@@ -30,48 +30,30 @@
             <label>
                 <input type="radio" ng-model="Main.units" ng-change="Main.loadWeatherForecast()"
                           value="metric" name="units">
-                C
+                °C
             </label>
 
             <label>
                 <input type="radio" ng-model="Main.units" ng-change="Main.loadWeatherForecast()"
                        value="imperial" name="units">
-                F
+                °F
             </label>
         </div>
 
-        <div ng-if="Main.isLoading" class="col-12">
+        <div ng-if="Main.isLoading" class="col-sm-12">
             <p>Loading...<p/>
         </div>
 
-        <div ng-if="Main.errorOccurred" class="col-12 error">
+        <div ng-if="Main.errorOccurred" class="col-sm-12 error">
             <p>Sorry something went wrong with Open Weather API...<p/>
         </div>
 
-        <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-12">
-            <!--<table class="table table-striped">-->
-                <!--<thead>-->
-                    <!--<tr>-->
-                        <!--<th>Date/Time</th>-->
-                        <!--<th>Weather</th>-->
-                        <!--<th>Temperature</th>-->
-                        <!--<th>Humidity</th>-->
-                    <!--</tr>-->
-                <!--</thead>-->
+        <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-sm-12">
 
-                <!--<tbody>-->
-                    <!--<tr ng-repeat="weather in Main.weatherData.list">-->
-                        <!--<td>{{weather.dt_txt}}</td>-->
-                        <!--<td>{{weather.weather[0].main}}</td>-->
-                        <!--<td>{{weather.main.temp_min}} ~ {{weather.main.temp_max}}</td>-->
-                        <!--<td>{{weather.main.humidity}}</td>-->
-                    <!--</tr>-->
-                <!--</tbody>-->
-            <!--</table>-->
+            <div class="col-sm-1"></div>
 
-
-            <div  ng-repeat="weather in Main.weatherData">
-                <weather-card weather-details-data="{{weather}}"></weather-card>
+            <div ng-repeat="weather in Main.weatherData" class="weather-card col-sm-2">
+                <weather-card weather-details-data="{{weather}}" class="col-sm-12"></weather-card>
             </div>
         </div>
     </div>

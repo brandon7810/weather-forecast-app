@@ -24,6 +24,7 @@
                 .respond(function(method, url){
 
                     let params = matchParams(url.split('?')[1]);
+                    params.list = ['WeatherData'];
                     return [200, params];
                 });
         }));

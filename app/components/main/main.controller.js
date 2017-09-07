@@ -100,8 +100,6 @@
                 }
             }
 
-            console.log(_weatherByDate)
-
             return Object.values(_weatherByDate);
         }
     }

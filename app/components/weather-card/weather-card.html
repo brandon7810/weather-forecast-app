@@ -1,7 +1,9 @@
-<h5>
- Date: {{WeatherCard.date}}
-</h5>
+<div class="col-sm-12">
+    <h5>
+     {{WeatherCard.date.format('dddd, MMM Do')}}
+    </h5>
 
-<h5>
- Status: {{WeatherCard.weatherDetails.weather[0].main}}
-</h5>
+    <h5>
+     Status: <img ng-src="{{WeatherCard.getWeatherIconPath()}}">
+    </h5>
+</div>

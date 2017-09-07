@@ -10,7 +10,12 @@
 .body{
     background-color: #646464;
     color: white;
-    padding: 25px 50px;
+    padding: 25px 25px;
+}
+
+.body .controls{
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .body .units-label{
@@ -25,4 +30,14 @@
     background-color: white;
     color: black;
     margin-top : 10px;
+}
+
+.body .weather-card{
+    border: 2px solid white;
+    padding: 0px;
+    margin-top: 5px;
+}
+
+.body .weather-card div{
+    padding: 0px;
 }
