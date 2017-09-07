@@ -27,11 +27,11 @@
                     return data;
                 }
 
-                return $q.reject();
+                return $q.reject('No data return!');
 
-            }, function() {
+            }, function(error) {
 
-                return $q.reject();
+                return $q.reject(error);
             });
         }
     }
