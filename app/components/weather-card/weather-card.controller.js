@@ -26,17 +26,17 @@
 
         function getWeatherIconPath(){
 
-            let weather = vm.selectedTimeWeather.weather[0].description;
+            let _weather = vm.selectedTimeWeather.weather[0].description;
 
-            if(weather.indexOf('clouds') !== -1)
+            if(_weather.indexOf('clouds') !== -1)
                 return "assets/img/clouds-d.png";
-            else if(weather.indexOf('mist') !== -1)
+            else if(_weather.indexOf('mist') !== -1)
                 return "assets/img/mist.png";
-            else if(weather.indexOf('rain') !== -1)
+            else if(_weather.indexOf('rain') !== -1)
                 return "assets/img/rain-d.png";
-            else if(weather.indexOf('snow') !== -1)
+            else if(_weather.indexOf('snow') !== -1)
                 return "assets/img/snow.png";
-            else if(weather.indexOf('thunderstorm') !== -1)
+            else if(_weather.indexOf('thunderstorm') !== -1)
                 return "assets/img/thunderstorm.png";
             else
                 return "assets/img/clear-d.png";
@@ -44,22 +44,22 @@
 
         function getDailyTemp(weatherDetails){
 
-            let max = weatherDetails[0].main.temp,
-                min = weatherDetails[0].main.temp;
+            let _max = weatherDetails[0].main.temp,
+                _min = weatherDetails[0].main.temp;
 
 
             for(let i=1; i<weatherDetails.length; i++){
 
-                if(weatherDetails[i].main.temp > max){
-                    max = weatherDetails[i].main.temp;
+                if(weatherDetails[i].main.temp > _max){
+                    _max = weatherDetails[i].main.temp;
                 }
 
-                if(weatherDetails[i].main.temp < min){
-                    min = weatherDetails[i].main.temp;
+                if(weatherDetails[i].main.temp < _min){
+                    _min = weatherDetails[i].main.temp;
                 }
             }
 
-            return [Math.round(max), Math.round(min)];
+            return [Math.round(_max), Math.round(_min)];
         }
     }
 })();

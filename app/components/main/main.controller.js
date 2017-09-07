@@ -92,14 +92,14 @@
 
             for(let i=0; i< data.list.length; i++){
 
-                let item = data.list[i];
-                let date = moment(item.dt_txt);
+                let _item = data.list[i];
+                let _date = moment(_item.dt_txt);
 
-                if(_weatherByDate[date.format('DD-MM-YY')] == null){
-                    _weatherByDate[date.format('DD-MM-YY')] = [item];
+                if(_weatherByDate[_date.format('DD-MM-YY')] == null){
+                    _weatherByDate[_date.format('DD-MM-YY')] = [_item];
                 }
                 else{
-                    _weatherByDate[date.format('DD-MM-YY')].push(item);
+                    _weatherByDate[_date.format('DD-MM-YY')].push(_item);
                 }
             }
 
