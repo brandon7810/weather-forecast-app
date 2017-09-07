@@ -1,9 +1,13 @@
 <div class="col-sm-12">
     <h5>
-     {{WeatherCard.date.format('dddd, MMM Do')}}
+        {{WeatherCard.date.format('dddd, MMM Do')}}
     </h5>
 
     <h5>
-     Status: <img ng-src="{{WeatherCard.getWeatherIconPath()}}">
+        Status: <img ng-src="{{WeatherCard.getWeatherIconPath()}}">
+    </h5>
+
+    <h5>
+        {{WeatherCard.selectedTimeWeather.main.temp_max}} ~ {{WeatherCard.selectedTimeWeather.main.temp_min}}
     </h5>
 </div>

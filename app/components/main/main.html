@@ -52,7 +52,7 @@
 
             <div class="col-sm-1"></div>
 
-            <div ng-repeat="weather in Main.weatherData" class="weather-card col-sm-2">
+            <div ng-repeat="weather in Main.weatherData" ng-if="$index < 5" class="weather-card col-sm-2">
                 <weather-card weather-details-data="{{weather}}" class="col-sm-12"></weather-card>
             </div>
         </div>
