@@ -17,7 +17,7 @@
         activate();
 
         function activate(){
-            console.log(vm.weatherDetails);
+            //console.log(vm.weatherDetails);
         }
 
         function getWeatherIconPath(){

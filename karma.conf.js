@@ -10,11 +10,16 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/moment/min/moment.min.js',
+
       'app.constants.js',
+
       'components/main/main.js',
+      'components/main/*.js',
+      'components/weather-card/weather-card.js',
+      'components/weather-card/*.js',
+
       'services/services.js',
-      'services/*.js',
-      'components/main/*.js'
+      'services/*.js'
     ],
 
     autoWatch: true,
