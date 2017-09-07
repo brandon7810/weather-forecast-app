@@ -16,6 +16,8 @@
 .body .controls{
     text-align: center;
     margin-bottom: 10px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 5px;
 }
 
 .body .units-label{
@@ -32,11 +34,16 @@
     margin-top : 10px;
 }
 
+.body .weather-details{
+    text-align: center;
+}
+
 .body .weather-card{
     border: 2px solid white;
     padding: 0;
     text-align: center;
     margin: 1px;
+    cursor: pointer;
 }
 
 .body .weather-card div{

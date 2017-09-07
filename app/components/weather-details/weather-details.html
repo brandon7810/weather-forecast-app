@@ -1,0 +1,41 @@
+<div class="col-sm-6">
+    <h5>
+        {{WeatherDetails.date.format('dddd, MMM Do')}}
+
+        <span class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                {{WeatherDetails.date.format('h:mma')}}
+                <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu">
+                <li ng-repeat="timeWeather in WeatherDetails.weatherDetails">
+                    <a ng-hide="WeatherDetails.moment(timeWeather.dt_txt).format('h:mma') === WeatherDetails.date.format('h:mma')"
+                       ng-click="WeatherDetails.selectTimeWeather(timeWeather)"
+                       href="javascript:void(0)">
+                        {{WeatherDetails.moment(timeWeather.dt_txt).format('h:mma')}}
+                    </a>
+                </li>
+            </ul>
+        </span>
+    </h5>
+
+    <h5>
+        Status: <img ng-src="{{WeatherDetails.getWeatherIconPath()}}">
+        {{WeatherDetails.selectedTimeWeather.weather[0].description}}
+    </h5>
+</div>
+
+<div class="col-sm-6">
+    <h5>
+        Temperature: {{WeatherDetails.selectedTimeWeather.main.temp_min}} ~ {{WeatherDetails.selectedTimeWeather.main.temp_max}}
+    </h5>
+
+    <h5>
+        Humidity: {{WeatherDetails.selectedTimeWeather.main.humidity}}
+    </h5>
+
+    <h5>
+        Pressure: {{WeatherDetails.selectedTimeWeather.main.pressure}}
+    </h5>
+</div>
