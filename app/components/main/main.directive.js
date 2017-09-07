@@ -8,7 +8,7 @@
     function main(){
         return {
             restrict        : 'E',
-            templateUrl     : 'main/main.html',
+            templateUrl     : 'components/main/main.html',
             controller      : 'MainCtrl',
             scope           : {},
             controllerAs    : 'Main'

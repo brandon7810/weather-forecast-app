@@ -8,7 +8,7 @@
         'ngResource',
         'weatherForecastApp.constants',
         'weatherForecastApp.routes',
-        'weatherForecastApp.main',
+        'weatherForecastApp.components',
         'weatherForecastApp.services'
     ]);
 })();
