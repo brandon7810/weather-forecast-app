@@ -12,12 +12,16 @@
         vm.weatherDetails       = angular.fromJson(vm.weatherDetailsData);
         vm.date                 = moment(vm.weatherDetails[0].dt_txt);
         vm.selectedTimeWeather  = vm.weatherDetails[0];
+        vm.dailyMaxTemp         = null;
+        vm.dailyMinTemp         = null;
+
         vm.getWeatherIconPath   = getWeatherIconPath;
 
         activate();
 
         function activate(){
-            //console.log(vm.weatherDetails);
+
+            [vm.dailyMaxTemp, vm.dailyMinTemp] = getDailyTemp(vm.weatherDetails);
         }
 
         function getWeatherIconPath(){
@@ -36,6 +40,26 @@
                 return "assets/img/thunderstorm.png";
             else
                 return "assets/img/clear-d.png";
+        }
+
+        function getDailyTemp(weatherDetails){
+
+            let max = weatherDetails[0].main.temp,
+                min = weatherDetails[0].main.temp;
+
+
+            for(let i=1; i<weatherDetails.length; i++){
+
+                if(weatherDetails[i].main.temp > max){
+                    max = weatherDetails[i].main.temp;
+                }
+
+                if(weatherDetails[i].main.temp < min){
+                    min = weatherDetails[i].main.temp;
+                }
+            }
+
+            return [Math.round(max), Math.round(min)];
         }
     }
 })();
