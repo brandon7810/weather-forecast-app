@@ -46,7 +46,7 @@
             }, {
                 "dt": 1504764000,
                 "main": {
-                    "temp": 11.55,
+                    "temp": 9.55,
                     "temp_min": 11.55,
                     "temp_max": 11.57,
                     "pressure": 1006.98,
@@ -96,6 +96,8 @@
             expect(weatherCardCtrl.weatherDetails).toBeDefined();
             expect(weatherCardCtrl.date).toBeDefined();
             expect(weatherCardCtrl.selectedTimeWeather).toBeDefined();
+            expect(weatherCardCtrl.dailyMaxTemp).toBeDefined();
+            expect(weatherCardCtrl.dailyMinTemp).toBeDefined();
 
             expect(weatherCardCtrl.weatherDetails[0].dt_txt).toBe(weatherListData[0].dt_txt);
             expect(+weatherCardCtrl.date).toBe(+moment(weatherListData[0].dt_txt));
@@ -107,6 +109,12 @@
             let path = weatherCardCtrl.getWeatherIconPath();
 
             expect(path).toBe('assets/img/rain-d.png');
+        }));
+
+        it('should have the correct daily temp - getDailyTemp()', inject(function(){
+
+            expect(weatherCardCtrl.dailyMaxTemp).toBe(12);
+            expect(weatherCardCtrl.dailyMinTemp).toBe(10);
         }));
     });
 })();

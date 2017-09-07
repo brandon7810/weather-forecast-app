@@ -34,10 +34,11 @@
 
 .body .weather-card{
     border: 2px solid white;
-    padding: 0px;
-    margin-top: 5px;
+    padding: 0;
+    text-align: center;
+    margin: 1px;
 }
 
 .body .weather-card div{
-    padding: 0px;
+    padding: 0;
 }
