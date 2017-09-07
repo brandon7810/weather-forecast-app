@@ -10,13 +10,15 @@
         beforeEach(module('weatherForecastApp.services'));
 
         let mainCtrl, OpenWeatherMap, openWeatherUrl, openWeatherRequestHandler,
-            $httpBackend, AppConstants, weatherListData;
+            $httpBackend, AppConstants, weatherListData, rootScope;
 
         beforeEach(inject(function($injector, $controller) {
 
             OpenWeatherMap  = $injector.get('OpenWeatherMap');
             $httpBackend    = $injector.get('$httpBackend');
             AppConstants    = $injector.get('AppConstants');
+            rootScope       = $injector.get('$rootScope');
+
             weatherListData = [{
                 "dt": 1504753200,
                 "main": {
@@ -218,6 +220,23 @@
 
             expect(mainCtrl.weatherData[0][0].dt).toBe(weatherListData[0].dt);
             expect(mainCtrl.weatherData[0][1].dt).toBe(weatherListData[1].dt);
+        }));
+
+        it('should properly select weather data by date and emit the event', inject(function() {
+
+            $httpBackend.flush();
+
+            let _weatherDetails = null;
+            rootScope.$on('weather-detail-select-event', function(ev, weatherData){
+                _weatherDetails = weatherData;
+            });
+
+            expect(_weatherDetails).toBe(null);
+
+            mainCtrl.selectDateWeather(mainCtrl.weatherData[0]);
+
+            expect(mainCtrl.selectedWeather[0].dt).toBe(weatherListData[0].dt);
+            expect(_weatherDetails[0].dt).toBe(weatherListData[0].dt);
         }));
     });
 
