@@ -17,6 +17,8 @@ module.exports = function(config) {
       'components/main/*.js',
       'components/weather-card/weather-card.js',
       'components/weather-card/*.js',
+      'components/weather-details/weather-details.js',
+      'components/weather-details/*.js',
 
       'services/services.js',
       'services/*.js'
