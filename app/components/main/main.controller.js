@@ -5,8 +5,8 @@
     angular.module('weatherForecastApp.main')
         .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['OpenWeatherMap', 'moment'];
-    function MainCtrl(OpenWeatherMap, moment){
+    MainCtrl.$inject = ['OpenWeatherMap', 'moment', '$rootScope', '$window'];
+    function MainCtrl(OpenWeatherMap, moment, $rootScope, $window){
 
         let vm              = this;
 
@@ -45,8 +45,10 @@
         vm.weatherData      = null;
         vm.isLoading        = true;
         vm.errorOccurred    = false;
+        vm.selectedWeather  = null;
 
-        vm.loadWeatherForecast = loadWeatherForecast;
+        vm.loadWeatherForecast  = loadWeatherForecast;
+        vm.selectDateWeather    = selectDateWeather;
 
         activate();
 
@@ -69,6 +71,7 @@
             OpenWeatherMap.getFiveDayForeCast(vm.city + ',' + vm.countryCode, vm.units).then(function(data){
 
                 vm.weatherData      = parseWeatherData(data);
+                vm.selectDateWeather(vm.weatherData[0]);
                 vm.isLoading        = false;
                 vm.errorOccurred    = false;
 
@@ -101,6 +104,12 @@
             }
 
             return Object.values(_weatherByDate);
+        }
+
+        function selectDateWeather(weather){
+            vm.selectedWeather = weather;
+            $rootScope.$emit('weather-detail-select-event', weather);
+            $window.scrollTo(0, 0);
         }
     }
 })();

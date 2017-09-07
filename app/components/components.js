@@ -4,6 +4,7 @@
 
     angular.module('weatherForecastApp.components', [
         'weatherForecastApp.main',
-        'weatherForecastApp.weatherCard'
+        'weatherForecastApp.weatherCard',
+        'weatherForecastApp.weatherDetails'
     ]);
 })();

@@ -1,17 +1,23 @@
 <div class="col-sm-12">
-    <h5>
-        {{WeatherCard.date.format('dddd, MMM Do')}}
-    </h5>
+    <div class="col-md-12">
+        <h7>
+            {{WeatherCard.date.format('dddd, MMM Do')}}
+        </h7>
+    </div>
 
-    <h5>
-        Status: <img ng-src="{{WeatherCard.getWeatherIconPath()}}">
-    </h5>
+    <div class="col-md-12">
+        <h7>
+            Status: <img ng-src="{{WeatherCard.getWeatherIconPath()}}">
+        </h7>
+    </div>
 
-    <h5 ng-if="WeatherCard.dailyMaxTemp === WeatherCard.dailyMinTemp">
-        {{WeatherCard.dailyMaxTemp}}
-    </h5>
+    <div class="col-md-12">
+        <h7 ng-if="WeatherCard.dailyMaxTemp === WeatherCard.dailyMinTemp">
+            {{WeatherCard.dailyMaxTemp}}
+        </h7>
 
-    <h5 ng-if="WeatherCard.dailyMaxTemp !== WeatherCard.dailyMinTemp">
-        {{WeatherCard.dailyMaxTemp}} ~ {{WeatherCard.dailyMinTemp}}
-    </h5>
+        <h7 ng-if="WeatherCard.dailyMaxTemp !== WeatherCard.dailyMinTemp">
+            {{WeatherCard.dailyMaxTemp}} ~ {{WeatherCard.dailyMinTemp}}
+        </h7>
+    </div>
 </div>

@@ -1,6 +1,6 @@
 {
   "name": "weather-forecast-app",
-  "description": "Weather forecast app for Achieve3000 test",
+  "description": "Weather Forecast App for personal portfolio",
   "version": "0.0.0",
   "private": true,
   "dependencies": {

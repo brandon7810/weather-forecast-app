@@ -48,12 +48,20 @@
             <p>Sorry something went wrong with Open Weather API...<p/>
         </div>
 
+        <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-sm-12 weather-details">
+            <div class="col-md-1"></div>
+
+            <weather-details weather-details-data="{{Main.selectedWeather}}" class="col-md-10"></weather-details>
+        </div>
+
         <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-sm-12">
 
-            <div class="col-sm-1"></div>
+            <div class="col-md-1"></div>
 
-            <div ng-repeat="weather in Main.weatherData" ng-if="$index < 5" class="weather-card col-sm-2">
-                <weather-card weather-details-data="{{weather}}" class="col-sm-12"></weather-card>
+            <div ng-repeat="weather in Main.weatherData" ng-if="$index < 5" class="weather-card col-md-2">
+                <weather-card weather-details-data="{{weather}}"
+                              ng-click="Main.selectDateWeather(weather)" class="col-sm-12">
+                </weather-card>
             </div>
         </div>
     </div>
