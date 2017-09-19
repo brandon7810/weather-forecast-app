@@ -46,6 +46,11 @@
     cursor: pointer;
 }
 
+.body .weather-cards-title p{
+    border-top: 2px solid gray;
+    text-align: center;
+}
+
 .body .weather-card div{
     padding: 0;
 }
