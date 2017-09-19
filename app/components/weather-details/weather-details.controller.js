@@ -51,6 +51,7 @@
 
         function selectTimeWeather(weather){
             vm.selectedTimeWeather = weather;
+            vm.date                = moment(vm.selectedTimeWeather.dt_txt);
         }
     }
 })();

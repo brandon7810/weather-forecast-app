@@ -124,11 +124,16 @@
             expect(path).toBe('assets/img/rain-d.png');
         }));
 
-        it('should select the correct weather', inject(function(){
+        it('should select the correct weather', inject(function(moment){
 
             weatherDetailsCtrl.selectedTimeWeather = null;
+            weatherDetailsCtrl.date                = null;
+
             weatherDetailsCtrl.selectTimeWeather(weatherListData[0]);
+
             expect(weatherDetailsCtrl.selectedTimeWeather.dt).toBe(weatherListData[0].dt);
+            expect(weatherDetailsCtrl.date.format('h:mma'))
+                .toBe(moment(weatherDetailsCtrl.selectedTimeWeather.dt_txt).format('h:mma'));
         }));
     });
 })();
