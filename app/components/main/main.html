@@ -54,6 +54,10 @@
             <weather-details weather-details-data="{{Main.selectedWeather}}" class="col-md-10"></weather-details>
         </div>
 
+        <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-sm-12 weather-cards-title">
+            <p>Click on a card to view weather details</p>
+        </div>
+
         <div ng-if="!Main.isLoading && !Main.errorOccurred" class="col-sm-12">
 
             <div class="col-md-1"></div>
